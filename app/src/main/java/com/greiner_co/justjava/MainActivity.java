@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
-    public void submitOrder(View view) {
+    public void submitOrder(@SuppressWarnings("UnusedParameters") View view) {
         displayPrice(quantity * 5);
     }
 
@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
-    public void increment(View view) {
+    public void increment(@SuppressWarnings("UnusedParameters") View view) {
         quantity = quantity + 1;
         display(quantity);
     }
 
-    public void decrement(View view) {
+    public void decrement(@SuppressWarnings("UnusedParameters") View view) {
         quantity = quantity - 1;
         display(quantity);
     }
