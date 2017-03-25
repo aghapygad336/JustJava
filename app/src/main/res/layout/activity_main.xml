@@ -16,25 +16,35 @@
         android:text="@string/quantity_title"
         android:textAllCaps="true" />
 
-    <Button
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
-        android:onClick="increment"
-        android:text="@string/plus_btn" />
-
-    <TextView
-        android:id="@+id/quantity_text_view"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:textColor="@android:color/black" />
+        android:layout_marginBottom="@dimen/bottom_margin">
 
-    <Button
-        android:layout_width="@dimen/btn_width"
-        android:layout_height="@dimen/btn_height"
-        android:layout_marginBottom="@dimen/bottom_margin"
-        android:onClick="decrement"
-        android:text="@string/minus_btn" />
+        <Button
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginEnd="@dimen/right_margin_small"
+            android:layout_marginRight="@dimen/right_margin_small"
+            android:onClick="decrement"
+            android:text="@string/minus_btn" />
+
+        <TextView
+            android:id="@+id/quantity_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/right_margin_small"
+            android:layout_marginRight="@dimen/right_margin_small"
+            android:text="0"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_height"
+            android:onClick="increment"
+            android:text="@string/plus_btn" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

@@ -6,4 +6,5 @@
     <dimen name="bottom_margin">16dp</dimen>
     <dimen name="btn_width">48dp</dimen>
     <dimen name="btn_height">48dp</dimen>
+    <dimen name="right_margin_small">8dp</dimen>
 </resources>
