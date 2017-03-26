@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(@SuppressWarnings("UnusedParameters") View view) {
-        String priceMessage = "Free";
+        int price = quantity * 5;
+        String priceString = NumberFormat.getCurrencyInstance().format(price);
+        String priceMessage = "Total: " + priceString + "\nThank you!";
         displayMessage(priceMessage);
         //displayPrice(quantity * 5);
     }
