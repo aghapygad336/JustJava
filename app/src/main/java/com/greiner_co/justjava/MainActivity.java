@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView tv = (TextView) findViewById(R.id.quantity_text_view);
+        tv.setText(0);
     }
 
     /**
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayQuantity(int count) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + count);
+        quantityTextView.setText(String.valueOf(count));
     }
 
     /**

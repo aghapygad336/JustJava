@@ -5,4 +5,5 @@
     <string name="order_summary_title">Order Summary</string>
     <string name="plus_btn">+</string>
     <string name="minus_btn">-</string>
+    <string name="zero_Dollars">$0</string>
 </resources>
