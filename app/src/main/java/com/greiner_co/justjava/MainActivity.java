@@ -19,46 +19,66 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     /**
      * This method is called when the order button is clicked.
+     *
+     * @param view is not used here
      */
     public void submitOrder(@SuppressWarnings("UnusedParameters") View view) {
-        int price = quantity * 5;
+        int price = calculatePrice();
+        displayMessage(createOrderSummary(price));
+    }
+
+    /**
+     * Calculates the price of the order.
+     *
+     * @return returns the price
+     */
+    private int calculatePrice() {
+        return quantity * 5;
+    }
+
+    /**
+     * Creates the order summary for an order
+     *
+     * @param price is the price of the current order
+     * @return returns a string with the order summary
+     */
+    private String createOrderSummary(int price) {
         String priceString = NumberFormat.getCurrencyInstance().format(price);
-        String priceMessage = "Total: " + priceString + "\nThank you!";
-        displayMessage(priceMessage);
-        //displayPrice(quantity * 5);
+        String orderSummaryString = "Name: Jens";
+        orderSummaryString += "\nQuantity: " + quantity;
+        orderSummaryString += "\nTotal: " + priceString;
+        orderSummaryString += "\nThank you!";
+        return orderSummaryString;
     }
 
     /**
      * This method displays the given quantity value on the screen.
+     *
+     * @param count is the number of ordered coffees
      */
-    private void displayQuantity(int number) {
+    private void displayQuantity(int count) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
-    }
-
-    /**
-     * This method displays the given price on the screen.
-     */
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        quantityTextView.setText("" + count);
     }
 
     /**
      * This method displays the given text on the screen.
+     *
+     * @param message is the message which should be shown on the screen
      */
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 
     /**
      * This method increases the variable "quantity" by 1
+     *
+     * @param view is not used here
      */
     public void increment(@SuppressWarnings("UnusedParameters") View view) {
         quantity = quantity + 1;
@@ -68,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      *
      * This method decreases the variable "quantity" by 1
+     *
+     * @param view is not used here
      */
     public void decrement(@SuppressWarnings("UnusedParameters") View view) {
         quantity = quantity - 1;
