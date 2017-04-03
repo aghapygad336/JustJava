@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView tv = (TextView) findViewById(R.id.quantity_text_view);
-        tv.setText(0);
+        TextView quantityView = (TextView) findViewById(R.id.quantity_text_view);
+        quantityView.setText("0");
     }
 
     /**
