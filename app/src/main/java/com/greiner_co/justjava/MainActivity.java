@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -34,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(@SuppressWarnings("UnusedParameters") View view) {
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price));
+        EditText text = (EditText) findViewById(R.id.name_field);
+        String name = text.getText().toString();
+        displayMessage(createOrderSummary(price, name));
     }
 
     /**
@@ -70,11 +73,12 @@ public class MainActivity extends AppCompatActivity {
      * Creates the order summary for an order
      *
      * @param price is the price of the current order
+     * @param name is the name of the customer
      * @return returns a string with the order summary
      */
-    private String createOrderSummary(int price) {
+    private String createOrderSummary(int price, String name) {
         String priceString = NumberFormat.getCurrencyInstance().format(price);
-        String orderSummaryString = "Name: Jens";
+        String orderSummaryString = "Name: " + name;
         orderSummaryString += "\nAdd whipped cream? " + hasWhippedCream;
         orderSummaryString += "\nAdd Chocolate? " + hasChocolate;
         orderSummaryString += "\nQuantity: " + quantity;
