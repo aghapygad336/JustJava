@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -15,7 +16,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     // private properties
-    private int quantity = 0;
+    private int quantity = 2;
     private boolean hasWhippedCream = false;
     private boolean hasChocolate = false;
 
@@ -24,8 +25,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initializeTextViews();
+    }
+
+    /**
+     * Initialize the TextViews when Activity is created
+     */
+    private void initializeTextViews() {
+        // setup quantity textView
         TextView quantityView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityView.setText("0");
+        quantityView.setText(String.valueOf(quantity));
+
+        // setup price (order summary) textView
+        int startPrice = calculatePrice(false, false);
+        String startPriceString = NumberFormat.getCurrencyInstance().format(startPrice);
+        TextView priceView = (TextView) findViewById(R.id.order_summary_text_view);
+        priceView.setText(startPriceString);
     }
 
     /**
@@ -129,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
      * @param view is not used here
      */
     public void increment(@SuppressWarnings("UnusedParameters") View view) {
+        if (quantity == 100) {
+            // Show an error message as a toast
+            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity = quantity + 1;
         displayQuantity(quantity);
     }
@@ -140,6 +160,11 @@ public class MainActivity extends AppCompatActivity {
      * @param view is not used here
      */
     public void decrement(@SuppressWarnings("UnusedParameters") View view) {
+        if (quantity == 1) {
+            // Show an error message as a toast
+            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity = quantity - 1;
         displayQuantity(quantity);
     }

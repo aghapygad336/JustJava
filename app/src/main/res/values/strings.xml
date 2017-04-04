@@ -5,7 +5,7 @@
     <string name="order_summary_title">Order Summary</string>
     <string name="plus_btn">+</string>
     <string name="minus_btn">-</string>
-    <string name="zero_Dollars">$0</string>
+    <string name="zero_Dollars">$10</string>
     <string name="toppings">Toppings</string>
     <string name="whipped_cream">Whipped cream</string>
     <string name="chocolate">Chocolate</string>
