@@ -3,6 +3,7 @@ package com.greiner_co.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -31,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(@SuppressWarnings("UnusedParameters") View view) {
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price));
+        CheckBox checkBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = checkBox.isChecked();
+        displayMessage(createOrderSummary(price, hasWhippedCream));
     }
 
     /**
@@ -47,11 +50,18 @@ public class MainActivity extends AppCompatActivity {
      * Creates the order summary for an order
      *
      * @param price is the price of the current order
+     * @param hasWhippedCream true if the customer wants whipped cream, else false
      * @return returns a string with the order summary
      */
-    private String createOrderSummary(int price) {
+    private String createOrderSummary(int price, boolean hasWhippedCream) {
         String priceString = NumberFormat.getCurrencyInstance().format(price);
         String orderSummaryString = "Name: Jens";
+        orderSummaryString += "\nAdd whipped cream? ";
+        if (hasWhippedCream) {
+            orderSummaryString += "true";
+        } else {
+            orderSummaryString += "false";
+        }
         orderSummaryString += "\nQuantity: " + quantity;
         orderSummaryString += "\nTotal: " + priceString;
         orderSummaryString += "\nThank you!";
