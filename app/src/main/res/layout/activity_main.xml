@@ -24,9 +24,21 @@
             android:id="@+id/whipped_cream_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setToppings"
             android:paddingLeft="@dimen/padding_left"
             android:paddingStart="@dimen/padding_left"
             android:text="@string/whipped_cream"
+            android:textSize="@dimen/text_size_checkBox"
+            tools:ignore="RtlSymmetry" />
+
+        <CheckBox
+            android:id="@+id/chocolate_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setToppings"
+            android:paddingLeft="@dimen/padding_left"
+            android:paddingStart="@dimen/padding_left"
+            android:text="@string/chocolate"
             android:textSize="@dimen/text_size_checkBox"
             tools:ignore="RtlSymmetry" />
 

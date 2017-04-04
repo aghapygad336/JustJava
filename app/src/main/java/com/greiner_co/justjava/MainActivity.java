@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     // private properties
     private int quantity = 0;
+    private boolean hasWhippedCream = false;
+    private boolean hasChocolate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(@SuppressWarnings("UnusedParameters") View view) {
         int price = calculatePrice();
-        CheckBox checkBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
-        boolean hasWhippedCream = checkBox.isChecked();
-        displayMessage(createOrderSummary(price, hasWhippedCream));
+        displayMessage(createOrderSummary(price));
     }
 
     /**
@@ -47,16 +47,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Sets either the Whipped Cream or Chocolate state
+     *
+     * @param view represents the calling CheckBox
+     */
+    public void setToppings(View view) {
+        if (view != null) {
+            CheckBox checkBox = (CheckBox) view;
+
+            switch (checkBox.getId()) {
+                case R.id.chocolate_checkbox:
+                    hasChocolate = checkBox.isChecked();
+                    break;
+                case R.id.whipped_cream_checkbox:
+                    hasWhippedCream = checkBox.isChecked();
+                    break;
+            }
+        }
+    }
+
+    /**
      * Creates the order summary for an order
      *
      * @param price is the price of the current order
-     * @param hasWhippedCream true if the customer wants whipped cream, else false
      * @return returns a string with the order summary
      */
-    private String createOrderSummary(int price, boolean hasWhippedCream) {
+    private String createOrderSummary(int price) {
         String priceString = NumberFormat.getCurrencyInstance().format(price);
         String orderSummaryString = "Name: Jens";
         orderSummaryString += "\nAdd whipped cream? " + hasWhippedCream;
+        orderSummaryString += "\nAdd Chocolate? " + hasChocolate;
         orderSummaryString += "\nQuantity: " + quantity;
         orderSummaryString += "\nTotal: " + priceString;
         orderSummaryString += "\nThank you!";
