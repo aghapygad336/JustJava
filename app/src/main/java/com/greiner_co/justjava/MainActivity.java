@@ -56,12 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private String createOrderSummary(int price, boolean hasWhippedCream) {
         String priceString = NumberFormat.getCurrencyInstance().format(price);
         String orderSummaryString = "Name: Jens";
-        orderSummaryString += "\nAdd whipped cream? ";
-        if (hasWhippedCream) {
-            orderSummaryString += "true";
-        } else {
-            orderSummaryString += "false";
-        }
+        orderSummaryString += "\nAdd whipped cream? " + hasWhippedCream;
         orderSummaryString += "\nQuantity: " + quantity;
         orderSummaryString += "\nTotal: " + priceString;
         orderSummaryString += "\nThank you!";
