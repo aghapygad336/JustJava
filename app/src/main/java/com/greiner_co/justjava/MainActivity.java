@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view is not used here
      */
     public void submitOrder(@SuppressWarnings("UnusedParameters") View view) {
-        int price = calculatePrice();
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
         EditText text = (EditText) findViewById(R.id.name_field);
         String name = text.getText().toString();
         displayMessage(createOrderSummary(price, name));
@@ -44,9 +44,25 @@ public class MainActivity extends AppCompatActivity {
      * Calculates the price of the order.
      *
      * @return returns the price
+     * @param addWhippedCream is true if a customer like some whippedCream
+     * @param addChocolate is true if a customer likes some chocolate
      */
-    private int calculatePrice() {
-        return quantity * 5;
+    private int calculatePrice(boolean addWhippedCream, boolean addChocolate) {
+        // Price of 1 cup of coffee
+        int basePrice = 5;
+
+        // add $1 if the customer wants whipped cream
+        if (addWhippedCream) {
+            basePrice++;
+        }
+
+        // add $2 if the customer wants chocolate
+        if (addChocolate) {
+            basePrice += 2;
+        }
+
+        // calculate total price
+        return quantity * basePrice;
     }
 
     /**
