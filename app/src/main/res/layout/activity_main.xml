@@ -11,6 +11,13 @@
         android:layout_margin="@dimen/top_margin"
         android:orientation="vertical">
 
+        <!-- Fake view to catch the focus instead of the EditText -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
         <EditText
             android:id="@+id/name_field"
             android:layout_width="match_parent"
