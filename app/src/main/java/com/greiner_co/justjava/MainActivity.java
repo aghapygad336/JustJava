@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setType("*/*");
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "JustJava order for " + name);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_email_subject, name));
         intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(price, name));
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -63,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Calculates the price of the order.
      *
-     * @return returns the price
      * @param addWhippedCream is true if a customer like some whippedCream
-     * @param addChocolate is true if a customer likes some chocolate
+     * @param addChocolate    is true if a customer likes some chocolate
+     * @return returns the price
      */
     private int calculatePrice(boolean addWhippedCream, boolean addChocolate) {
         // Price of 1 cup of coffee
@@ -109,17 +109,22 @@ public class MainActivity extends AppCompatActivity {
      * Creates the order summary for an order
      *
      * @param price is the price of the current order
-     * @param name is the name of the customer
+     * @param name  is the name of the customer
      * @return returns a string with the order summary
      */
     private String createOrderSummary(int price, String name) {
-        String priceString = NumberFormat.getCurrencyInstance().format(price);
-        String orderSummaryString = "Name: " + name;
-        orderSummaryString += "\nAdd whipped cream? " + hasWhippedCream;
-        orderSummaryString += "\nAdd Chocolate? " + hasChocolate;
-        orderSummaryString += "\nQuantity: " + quantity;
-        orderSummaryString += "\nTotal: " + priceString;
-        orderSummaryString += "\nThank you!";
+        String totalPrice = NumberFormat.getCurrencyInstance().format(price);
+        String orderSummaryString = getString(R.string.order_summary_name, name);
+        orderSummaryString += "\n" +
+                getString(R.string.order_summary_whipped_cream, (hasWhippedCream ? getString(R.string.str_true) : getString(R.string.str_false)));
+        orderSummaryString += "\n" +
+                getString(R.string.order_summary_chocolate, (hasChocolate ? getString(R.string.str_true) : getString(R.string.str_false)));
+        orderSummaryString += "\n" +
+                getString(R.string.order_summary_quantity, quantity);
+        orderSummaryString += "\n" +
+                getString(R.string.order_summary_price, totalPrice);
+        orderSummaryString += "\n" +
+                getString(R.string.thank_you);
         return orderSummaryString;
     }
 
@@ -141,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     public void increment(@SuppressWarnings("UnusedParameters") View view) {
         if (quantity == 100) {
             // Show an error message as a toast
-            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_msg_max_quantity_exceeded, Toast.LENGTH_SHORT).show();
             return;
         }
         quantity = quantity + 1;
@@ -149,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * This method decreases the variable "quantity" by 1
      *
      * @param view is not used here
@@ -157,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(@SuppressWarnings("UnusedParameters") View view) {
         if (quantity == 1) {
             // Show an error message as a toast
-            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_msg_min_quantity_exceeded, Toast.LENGTH_SHORT).show();
             return;
         }
         quantity = quantity - 1;

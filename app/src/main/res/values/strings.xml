@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
     <string name="quantity_title">Quantity</string>
     <string name="order_button_title">Order</string>
@@ -8,4 +8,15 @@
     <string name="whipped_cream">Whipped cream</string>
     <string name="chocolate">Chocolate</string>
     <string name="name">Name</string>
+    <string name="thank_you">Thank you!</string>
+    <string name="order_summary_price">Total: <xliff:g example="$10" id="totalPrice">%s</xliff:g></string>
+    <string name="order_summary_quantity">Quantity: <xliff:g example="2" id="quantity">%d</xliff:g></string>
+    <string name="order_summary_name">Name: <xliff:g example="Jens" id="name">%s</xliff:g></string>
+    <string name="str_true">true</string>
+    <string name="str_false">false</string>
+    <string name="order_summary_whipped_cream">Add whipped cream? <xliff:g example="true" id="addWhippedCream">%s</xliff:g></string>
+    <string name="order_summary_chocolate">Add Chocolate? <xliff:g example="true" id="addChocolate">%s</xliff:g></string>
+    <string name="toast_msg_max_quantity_exceeded">You cannot have more than 100 coffees</string>
+    <string name="toast_msg_min_quantity_exceeded">You cannot have less than 1 coffee</string>
+    <string name="order_summary_email_subject">JustJava order for <xliff:g example="Jens" id="name">%s</xliff:g></string>
 </resources>

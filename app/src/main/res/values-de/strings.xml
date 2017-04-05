@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Nur Kaffee</string>
+    <string name="chocolate">Schokostreusel</string>
+    <string name="name">Name</string>
+    <string name="minus_btn">-</string>
+    <string name="order_button_title">Bestellung</string>
+    <string name="order_summary_chocolate">Schokostreusel hinzufügen? <xliff:g example="true" id="addChocolate">%s</xliff:g></string>
+    <string name="order_summary_email_subject">Nur Kaffee Bestellung für <xliff:g example="Jens" id="name">%s</xliff:g></string>
+    <string name="order_summary_name">Name: <xliff:g example="Jens" id="name">%s</xliff:g></string>
+    <string name="order_summary_price">Gesamtpreis: <xliff:g example="$10" id="totalPrice">%s</xliff:g></string>
+    <string name="order_summary_quantity">Anzahl: <xliff:g example="2" id="quantity">%d</xliff:g></string>
+    <string name="order_summary_whipped_cream">Schlagsahne hinzufügen?  <xliff:g example="true" id="addWhippedCream">%s</xliff:g></string>
+    <string name="plus_btn">+</string>
+    <string name="quantity_title">Anzahl</string>
+    <string name="str_false">nein</string>
+    <string name="str_true">ja</string>
+    <string name="thank_you">Vielen Dank!</string>
+    <string name="toast_msg_max_quantity_exceeded">Maximum sind 100 Kaffee pro Bestellung</string>
+    <string name="toast_msg_min_quantity_exceeded">Minimum sind 1 Kaffee pro Bestellung</string>
+    <string name="toppings">Extras</string>
+    <string name="whipped_cream">Schlagsahne</string>
+</resources>
