@@ -37,12 +37,6 @@ public class MainActivity extends AppCompatActivity {
         // setup quantity textView
         TextView quantityView = (TextView) findViewById(R.id.quantity_text_view);
         quantityView.setText(String.valueOf(quantity));
-
-        // setup price (order summary) textView
-        int startPrice = calculatePrice(false, false);
-        String startPriceString = NumberFormat.getCurrencyInstance().format(startPrice);
-        TextView priceView = (TextView) findViewById(R.id.order_summary_text_view);
-        priceView.setText(startPriceString);
     }
 
     /**
@@ -137,16 +131,6 @@ public class MainActivity extends AppCompatActivity {
     private void displayQuantity(int count) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText(String.valueOf(count));
-    }
-
-    /**
-     * This method displays the given text on the screen.
-     *
-     * @param message is the message which should be shown on the screen
-     */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
     }
 
     /**
