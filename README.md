@@ -1,5 +1,7 @@
 # JustJava
-Udacity example app lesson 2a
+Udacity EU Scholarship Android Development for Beginners
+
+## Example app Lesson 2A
 
 Start to add user interactions to your UI.
 
